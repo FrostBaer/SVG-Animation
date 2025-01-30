@@ -44,12 +44,12 @@ body {
 
   position: absolute;
   left: -0.5em;
-  bottom: 1em;
+  bottom: -1em;
   /* background-image: radial-gradient(circle at top, lightpink, 40%, #000); */
   background: radial-gradient(circle at top, rgba(255, 255, 255, 0.5), rgba(0, 0, 0, 0.7) 100%), 
   url(chrome-gold.jpg) center/cover;
 
-  animation: ballBounce var(--bounceSpeed) infinite ease-out;
+  animation: ballBounce var(--bounceSpeed) infinite ease-out, ballBackground var(--bounceSpeed) infinite ease-out;
   /*the ball in reality is a 2D shape, 
     we counter the rotation of the scene, 
     so it always faces the camera*/
@@ -59,12 +59,51 @@ body {
 @keyframes ballBounce {
   0%,
   100% {
-    bottom: 0.5em;
+    bottom: -2em;
     animation-timing-function: cubic-bezier(0.5, 1, 0.89, 1);
   }
   50% {
-    bottom: 3em;
+    bottom: 2em;
     animation-timing-function: cubic-bezier(0.11, 0, 0.5, 0);
+  }
+}
+
+@keyframes ballBackground {
+  0% {
+    background: radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.5), rgba(0, 0, 0, 0.7) 100%), 
+    url(chrome-gold.jpg) center/cover;
+  }
+  10%{
+    background: radial-gradient(circle at 50% 10%, rgba(255, 255, 255, 0.5), rgba(0, 0, 0, 0.7) 100%), 
+    url(chrome-gold.jpg) center/cover;
+  }
+  20% {
+    background: radial-gradient(circle at 50% 20%, rgba(255, 255, 255, 0.5), rgba(0, 0, 0, 0.7) 100%), 
+    url(chrome-gold.jpg) center/cover;
+  }
+  30% {
+    background: radial-gradient(circle at 50% 30%, rgba(255, 255, 255, 0.5), rgba(0, 0, 0, 0.7) 100%), 
+    url(chrome-gold.jpg) center/cover;
+  }
+  50% {
+    background: radial-gradient(circle at 50% 35%, rgba(255, 255, 255, 0.5), rgba(0, 0, 0, 0.7) 100%), 
+    url(chrome-gold.jpg) center/cover;
+  }
+  70% {
+    background: radial-gradient(circle at 50% 30%, rgba(255, 255, 255, 0.5), rgba(0, 0, 0, 0.7) 100%),
+    url(chrome-gold.jpg) center/cover;
+  }
+  80% {
+    background: radial-gradient(circle at 50% 20%, rgba(255, 255, 255, 0.5), rgba(0, 0, 0, 0.7) 100%),
+    url(chrome-gold.jpg) center/cover;
+  }
+  90% {
+    background: radial-gradient(circle at 50% 10%, rgba(255, 255, 255, 0.5), rgba(0, 0, 0, 0.7) 100%),
+    url(chrome-gold.jpg) center/cover;
+  }
+  100% {
+    background: radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.5), rgba(0, 0, 0, 0.7) 100%),
+    url(chrome-gold.jpg) center/cover;
   }
 }
 
@@ -95,7 +134,7 @@ body {
   height: 2em;
 
   position: absolute;
-  bottom: -1em;
+  bottom: -3.5em;
   left: -1em;
   animation: cubeHeight var(--bounceSpeed) infinite linear,
     rotateCube var(--rotateSpeed) infinite linear;
@@ -165,10 +204,11 @@ body {
 }
 
 .floor {
-  width: 25em;
-  height: 15em;
+  width: 150vw;
+  height: 10em;
   background-image: 
-    /*cast shadow*/ radial-gradient(#0000, #31302e 75%),
+    /*cast shadow*/ 
+    radial-gradient(#0000, #31302e 75%),
     /*pattern*/
       repeating-conic-gradient(
         from 45deg,
@@ -178,6 +218,6 @@ body {
   background-size: 100%, 1em 1em;
 
   position: absolute;
-  top: 1em;
+  top: 5em;
   transform: translate(-50%, -50%) rotateX(90deg);
 }
